@@ -10,7 +10,33 @@
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
                 <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
-            <!-- Other app resources here -->
+            
+            <!-- Theme-specific colors -->
+            <ResourceDictionary.ThemeDictionaries>
+                <!-- Light Theme -->
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="DocumentViewerBackgroundBrush" Color="#F5F5F5"/>
+                    <SolidColorBrush x:Key="DocumentPageBackgroundBrush" Color="White"/>
+                    <SolidColorBrush x:Key="DocumentTextForegroundBrush" Color="#1F1F1F"/>
+                    <Color x:Key="WebViewBackgroundColor">White</Color>
+                </ResourceDictionary>
+                
+                <!-- Dark Theme -->
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="DocumentViewerBackgroundBrush" Color="#1E1E1E"/>
+                    <SolidColorBrush x:Key="DocumentPageBackgroundBrush" Color="#2D2D2D"/>
+                    <SolidColorBrush x:Key="DocumentTextForegroundBrush" Color="White"/>
+                    <Color x:Key="WebViewBackgroundColor">#2D2D2D</Color>
+                </ResourceDictionary>
+                
+                <!-- High Contrast Theme -->
+                <ResourceDictionary x:Key="HighContrast">
+                    <SolidColorBrush x:Key="DocumentViewerBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}"/>
+                    <SolidColorBrush x:Key="DocumentPageBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}"/>
+                    <SolidColorBrush x:Key="DocumentTextForegroundBrush" Color="{ThemeResource SystemColorWindowTextColor}"/>
+                    <Color x:Key="WebViewBackgroundColor">White</Color>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
