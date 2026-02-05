@@ -6,6 +6,7 @@
     xmlns:local="using:DocPic"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
     Title="DocPic">
 
@@ -17,6 +18,8 @@
         <Grid.RowDefinitions>
             <!-- Tite Bar-->
             <RowDefinition Height="Auto" />
+            <!-- Toolbar -->
+            <RowDefinition Height="Auto" />
             <!-- App Content -->
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -26,7 +29,35 @@
                 <FontIconSource Glyph="&#xE8A5;"/>
             </TitleBar.IconSource>
         </TitleBar>
+        
+        <!-- Command Bar -->
+        <CommandBar Grid.Row="1" 
+                    IsOpen="False" 
+                    DefaultLabelPosition="Right">
+            <AppBarButton Icon="OpenFile" Label="打开文档" Click="OpenFile"/>
+        </CommandBar>
 
-        <Frame x:Name="rootFrame" Grid.Row="1"/>
+        <!-- Document Content Viewer -->
+        <Grid Grid.Row="2" 
+              Background="{ThemeResource DocumentViewerBackgroundBrush}">
+            <Border x:Name="DocumentBorder"
+                    Margin="40,20"
+                    Background="{ThemeResource DocumentPageBackgroundBrush}"
+                    CornerRadius="8"
+                    BorderThickness="1"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    Padding="20">
+                <Border.Shadow>
+                    <ThemeShadow />
+                </Border.Shadow>
+                <WebView2 x:Name="DocumentViewer"/>
+            </Border>
+            <RichTextBlock x:Name="DocumentContent" 
+                          TextWrapping="Wrap"
+                          IsTextSelectionEnabled="True"
+                          MaxWidth="800"
+                          HorizontalAlignment="Left"
+                          Visibility="Collapsed"/>
+        </Grid>
     </Grid>
 </Window>
