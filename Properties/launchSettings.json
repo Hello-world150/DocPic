@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DocPic (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "DocPic (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
